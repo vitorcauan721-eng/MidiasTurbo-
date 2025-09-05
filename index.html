@@ -7,11 +7,11 @@
 <meta name="description" content="MidiasTurbo — Seguidores reais brasileiros para Instagram e TikTok. Entrega rápida, segura e alta conversão." />
 <style>
 :root{
-  --bg:#070707;
-  --card:#111215;
-  --muted:#9aa0a6;
-  --accent1:#0066ff;
-  --accent2:#8a00ff;
+  --bg:#1c0b2c;
+  --card:#2a133e;
+  --muted:#c0b7d1;
+  --accent1:#8a00ff;
+  --accent2:#c56eff;
   --cta:#ff2d9c;
   --white:#ffffff;
   --glass: rgba(255,255,255,0.03);
@@ -22,7 +22,7 @@ html,body{height:100%}
 body{
   margin:0;
   font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
-  background:linear-gradient(180deg,#050508 0%, #0a0a0d 60%);
+  background:linear-gradient(180deg,#140921 0%, #1c0b2c 60%);
   color:var(--white);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -45,32 +45,56 @@ header{
 .hero{display:flex;gap:18px;align-items:center;justify-content:space-between;margin-top:6px;flex-wrap:wrap}
 .hero-left{flex:1;min-width:0}
 .kicker{display:inline-block;padding:6px 10px;background:linear-gradient(90deg,var(--accent2),var(--accent1));border-radius:999px;font-weight:700;font-size:12px;color:white;margin-bottom:12px}
-h1{font-size:1.7rem;margin:0 0 10px;color:linear-gradient(90deg,var(--accent1),var(--accent2));}
+h1{font-size:1.7rem;margin:0 0 10px;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 h1 b{display:block;font-size:1.9rem}
 p.lead{color:var(--muted);margin:0 0 18px;font-size:15px}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:12px;font-weight:700;border:none;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:12px;font-weight:700;border:none;cursor:pointer;text-decoration:none;}
 .btn-primary{background:linear-gradient(90deg,var(--cta),var(--accent2));color:#fff;box-shadow:0 10px 30px rgba(255,45,156,0.12)}
 .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
-.hero-video{flex:1;display:flex;justify-content:center;align-items:center}
-.hero-video video{border-radius:18px;max-width:100%;height:auto;box-shadow:0 12px 36px rgba(0,0,0,0.6)}
+.hero-video{flex:1;display:flex;justify-content:center;align-items:center;position:relative}
+.hero-video::before{
+  content:"";
+  display:block;
+  width:220px;
+  height:480px;
+  border-radius:36px;
+  border:8px solid #3a1f5c;
+  position:absolute;
+  top:0;left:50%;
+  transform:translateX(-50%);
+  box-shadow:0 12px 36px rgba(0,0,0,0.6);
+  background:#000;
+  z-index:1;
+}
+.hero-video video{
+  border-radius:28px;
+  max-width:200px;
+  max-height:464px;
+  height:auto;
+  position:absolute;
+  top:8px; left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+}
 .benefits{display:flex;gap:12px;margin:22px 0;flex-wrap:wrap}
 .benefit{flex:1;min-width:160px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:center}
-.icon-wrap{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--accent1),var(--accent2));font-weight:800}
+.icon-wrap{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--accent1),var(--accent2));font-weight:800;font-size:20px}
 .benefit h4{margin:0;font-size:15px}
 .benefit p{margin:0;color:var(--muted);font-size:13px}
-.rules{background:linear-gradient(180deg,#0b0b0d,#0d0d11);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);margin:16px 0}
+.rules{background:linear-gradient(180deg,#1c0b2c,#2a133e);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);margin:16px 0}
 .rules h3{margin:0 0 8px;color:var(--accent2)}
 .rules ul{list-style:none;padding-left:0;margin:0;display:grid;gap:8px}
 .rules li{display:flex;gap:10px;align-items:flex-start;color:#fff}
 .rules li .bullet{min-width:28px}
 .plans{margin:18px 0}
 .plan-grid{display:grid;grid-template-columns:1fr;gap:12px}
-.plan{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px}
+.plan{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px;transition:transform .2s;cursor:pointer}
+.plan:hover{transform:scale(1.03)}
+.plan .name{font-weight:700;font-size:16px;color:var(--accent2)}
 .plan .price{font-weight:800;font-size:16px}
 .plan small{color:var(--muted)}
 .plan .buy-row{display:flex;gap:8px;align-items:center;justify-content:space-between}
-.plan .promo{background:var(--accent1);color:#fff;padding:4px 8px;border-radius:999px;font-weight:700;font-size:12px}
 .input-user{padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);width:100%;margin-bottom:10px}
 @media (max-width:720px){
   .wrap{padding:88px 14px 40px}
@@ -95,18 +119,18 @@ p.lead{color:var(--muted);margin:0 0 18px;font-size:15px}
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-left">
-      <div class="kicker">Cresça rápido • Seguidores Reais</div>
+      <div class="kicker">🚀 Cresça rápido • Seguidores Reais</div>
       <h1 id="hero-title"><b>Transforme seu perfil</b> com seguidores reais 🇧🇷</h1>
-      <p class="lead">Aumente autoridade no Instagram e no TikTok com entregas rápidas, segura e feita para contas brasileiras — sem senha.</p>
+      <p class="lead">Aumente autoridade no Instagram e TikTok com entregas rápidas, seguras e brasileiras — só informe seu @!</p>
       <div class="hero-cta">
-        <button class="btn btn-primary" id="scroll-plans">Escolher Plano Agora 🚀</button>
+        <button class="btn btn-primary" id="scroll-plans">Escolher Plano Agora</button>
         <button class="btn btn-outline" id="see-benefits">Como Funciona</button>
       </div>
 
       <div class="benefits">
-        <div class="benefit"><div class="icon-wrap">⚡</div><div><h4>Entrega Rápida</h4><p>Início em minutos — ramp-up suave.</p></div></div>
-        <div class="benefit"><div class="icon-wrap">🇧🇷</div><div><h4>Seguidores Reais</h4><p>Contas brasileiras — público real.</p></div></div>
-        <div class="benefit"><div class="icon-wrap">🔒</div><div><h4>Privacidade</h4><p>Não pedimos senha — só @.</p></div></div>
+        <div class="benefit"><div class="icon-wrap">⚡</div><div><h4>Entrega Rápida</h4><p>Começa em minutos!</p></div></div>
+        <div class="benefit"><div class="icon-wrap">🇧🇷</div><div><h4>Seguidores Reais</h4><p>Público brasileiro real.</p></div></div>
+        <div class="benefit"><div class="icon-wrap">🔒</div><div><h4>Privacidade</h4><p>Não pedimos senha, só @.</p></div></div>
       </div>
     </div>
 
@@ -124,19 +148,81 @@ p.lead{color:var(--muted);margin:0 0 18px;font-size:15px}
   <!-- Plans -->
   <section class="plans" id="plans">
     <div class="plan-grid" id="instagram-plans">
-      <div class="plan"><div class="price">R$12,90</div><small>1500 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
-      <div class="plan"><div class="price">R$19,90</div><small>3000 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
-      <div class="plan"><div class="price">R$27,90</div><small>5000 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
-      <div class="plan"><div class="price">R$34,90</div><small>10k seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
-      <div class="plan"><div class="price">R$42,90</div><small>20k seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
+      <div class="plan">
+        <div class="name">Inicial</div>
+        <div class="price">R$12,90</div>
+        <small>1500 seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/35t4u6p_551959" target="_blank">Comprar</a></div>
+      </div>
+      <div class="plan">
+        <div class="name">Popular</div>
+        <div class="price">R$19,90</div>
+        <small>3000 seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/39uhgwb_552026" target="_blank">Comprar</a></div>
+      </div>
+      <div class="plan">
+        <div class="name">Turbo</div>
+        <div class="price">R$27,90</div>
+        <small>5000 seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3a7xmuh_552031" target="_blank">Comprar</a></div>
+      </div>
+      <div class="plan">
+        <div class="name">Premium</div>
+        <div class="price">R$34,90</div>
+        <small>10k seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3c96b6k_552039" target="_blank">Comprar</a></div>
+      </div>
+      <div class="plan">
+        <div class="name">Influencer</div>
+        <div class="price">R$42,90</div>
+        <small>20k seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3fj2myn_552043" target="_blank">Comprar</a></div>
+      </div>
+      <div class="plan">
+        <div class="name">Empresarial</div>
+        <div class="price">R$49,90</div>
+        <small>50k seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3bat597_552044" target="_blank">Comprar</a></div>
+      </div>
     </div>
+
     <div class="plan-grid" id="tiktok-plans" style="display:none">
-      <div class="plan"><div class="price">R$14,90</div><small>1000 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
-      <div class="plan"><div class="price">R$22,90</div><small>1500 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
-      <div class="plan"><div class="price">R$30,90</div><small>3000 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
-      <div class="plan"><div class="price">R$37,90</div><small>5000 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
-      <div class="plan"><div class="price">R$46,90</div><small>10k seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
-      <div class="plan"><div class="price">R$55,90</div><small>20k seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
+      <div class="plan">
+        <div class="name">Inicial</div>
+        <div class="price">R$14,90</div>
+        <small>1500 seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/32fasna_552053" target="_blank">Comprar</a></div>
+      </div>
+      <div class="plan">
+        <div class="name">Popular</div>
+        <div class="price">R$22,90</div>
+        <small>3000 seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3cz26un_552055" target="_blank">Comprar</a></div>
+      </div>
+      <div class="plan">
+        <div class="name">Turbo</div>
+        <div class="price">R$30,90</div>
+        <small>5000 seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/fk4awrm_552057" target="_blank">Comprar</a></div>
+      </div>
+      <div class="plan">
+        <div class="name">Premium</div>
+        <div class="price">R$37,90</div>
+        <small>10k seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/ftweqmm_552062" target="_blank">Comprar</a></div>
+      </div>
+      <div class="plan">
+        <div class="name">Influencer</div>
+        <div class="price">R$46,90</div>
+        <small>20k seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3aymqq9_552065" target="_blank">Comprar</a></div>
+      </div>
+      <div class="plan">
+        <div class="name">Empresarial</div>
+        <div class="price">R$55,90</div>
+        <small>50k seguidores</small>
+        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/niyto2f_552068" target="_blank">Comprar</a></div>
+      </div>
     </div>
   </section>
 
@@ -157,7 +243,13 @@ tabs.forEach(tab=>{
 document.getElementById('scroll-plans').addEventListener('click',()=>{
   document.getElementById('plans').scrollIntoView({behavior:'smooth'});
 });
+document.getElementById('goto-plans').addEventListener('click',()=>{
+  document.getElementById('plans').scrollIntoView({behavior:'smooth'});
+});
 </script>
 
 </body>
 </html>
+
+
+
