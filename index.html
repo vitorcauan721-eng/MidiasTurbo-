@@ -14,8 +14,6 @@
   --accent2:#c56eff;
   --cta:#ff2d9c;
   --white:#ffffff;
-  --glass: rgba(255,255,255,0.03);
-  --success:#00d48f;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -24,8 +22,6 @@ body{
   font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
   background:linear-gradient(180deg,#140921 0%, #1c0b2c 60%);
   color:var(--white);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
   line-height:1.35;
 }
 .wrap{max-width:980px;margin:0 auto;padding:88px 18px 60px;}
@@ -38,9 +34,9 @@ header{
 }
 .logo img{height:36px}
 .nav-actions{display:flex;align-items:center;gap:10px}
-.tabs{display:flex;gap:8px;background:transparent;padding:6px;border-radius:999px;justify-content:center;margin-bottom:18px}
-.tab{padding:8px 12px;border-radius:999px;font-weight:600;font-size:14px;color:var(--white);opacity:.9;cursor:pointer}
-.tab.inactive{background:transparent;opacity:.6}
+.tabs{display:flex;gap:8px;background:transparent;padding:6px;border-radius:999px;justify-content:center;margin-bottom:18px;cursor:pointer;}
+.tab{padding:8px 12px;border-radius:999px;font-weight:600;font-size:14px;color:var(--white);opacity:.9}
+.tab.inactive{opacity:.6}
 .cta-header{background:linear-gradient(90deg,var(--cta),var(--accent2));color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;border:none;cursor:pointer;box-shadow:0 6px 18px rgba(138,0,255,0.12)}
 .hero{display:flex;gap:18px;align-items:center;justify-content:space-between;margin-top:6px;flex-wrap:wrap}
 .hero-left{flex:1;min-width:0}
@@ -53,30 +49,7 @@ p.lead{color:var(--muted);margin:0 0 18px;font-size:15px}
 .btn-primary{background:linear-gradient(90deg,var(--cta),var(--accent2));color:#fff;box-shadow:0 10px 30px rgba(255,45,156,0.12)}
 .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
 .hero-video{flex:1;display:flex;justify-content:center;align-items:center;position:relative}
-.hero-video::before{
-  content:"";
-  display:block;
-  width:220px;
-  height:480px;
-  border-radius:36px;
-  border:8px solid #3a1f5c;
-  position:absolute;
-  top:0;left:50%;
-  transform:translateX(-50%);
-  box-shadow:0 12px 36px rgba(0,0,0,0.6);
-  background:#000;
-  z-index:1;
-}
-.hero-video video{
-  border-radius:28px;
-  max-width:200px;
-  max-height:464px;
-  height:auto;
-  position:absolute;
-  top:8px; left:50%;
-  transform:translateX(-50%);
-  z-index:2;
-}
+.hero-video video{border-radius:28px;max-width:200px;max-height:464px;height:auto;}
 .benefits{display:flex;gap:12px;margin:22px 0;flex-wrap:wrap}
 .benefit{flex:1;min-width:160px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:center}
 .icon-wrap{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--accent1),var(--accent2));font-weight:800;font-size:20px}
@@ -122,8 +95,9 @@ p.lead{color:var(--muted);margin:0 0 18px;font-size:15px}
       <div class="kicker">🚀 Cresça rápido • Seguidores Reais</div>
       <h1 id="hero-title"><b>Transforme seu perfil</b> com seguidores reais 🇧🇷</h1>
       <p class="lead">Aumente autoridade no Instagram e TikTok com entregas rápidas, seguras e brasileiras — só informe seu @!</p>
+      <input type="text" class="input-user" id="username" placeholder="@SeuUsuario">
       <div class="hero-cta">
-        <button class="btn btn-primary" id="scroll-plans">Escolher Plano Agora</button>
+        <button class="btn btn-primary" id="scroll-plans">Escolher Agora</button>
         <button class="btn btn-outline" id="see-benefits">Como Funciona</button>
       </div>
 
@@ -147,88 +121,51 @@ p.lead{color:var(--muted);margin:0 0 18px;font-size:15px}
 
   <!-- Plans -->
   <section class="plans" id="plans">
-    <div class="plan-grid" id="instagram-plans">
-      <div class="plan">
-        <div class="name">Inicial</div>
-        <div class="price">R$12,90</div>
-        <small>1500 seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/35t4u6p_551959" target="_blank">Comprar</a></div>
-      </div>
-      <div class="plan">
-        <div class="name">Popular</div>
-        <div class="price">R$19,90</div>
-        <small>3000 seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/39uhgwb_552026" target="_blank">Comprar</a></div>
-      </div>
-      <div class="plan">
-        <div class="name">Turbo</div>
-        <div class="price">R$27,90</div>
-        <small>5000 seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3a7xmuh_552031" target="_blank">Comprar</a></div>
-      </div>
-      <div class="plan">
-        <div class="name">Premium</div>
-        <div class="price">R$34,90</div>
-        <small>10k seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3c96b6k_552039" target="_blank">Comprar</a></div>
-      </div>
-      <div class="plan">
-        <div class="name">Influencer</div>
-        <div class="price">R$42,90</div>
-        <small>20k seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3fj2myn_552043" target="_blank">Comprar</a></div>
-      </div>
-      <div class="plan">
-        <div class="name">Empresarial</div>
-        <div class="price">R$49,90</div>
-        <small>50k seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3bat597_552044" target="_blank">Comprar</a></div>
-      </div>
-    </div>
-
-    <div class="plan-grid" id="tiktok-plans" style="display:none">
-      <div class="plan">
-        <div class="name">Inicial</div>
-        <div class="price">R$14,90</div>
-        <small>1500 seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/32fasna_552053" target="_blank">Comprar</a></div>
-      </div>
-      <div class="plan">
-        <div class="name">Popular</div>
-        <div class="price">R$22,90</div>
-        <small>3000 seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3cz26un_552055" target="_blank">Comprar</a></div>
-      </div>
-      <div class="plan">
-        <div class="name">Turbo</div>
-        <div class="price">R$30,90</div>
-        <small>5000 seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/fk4awrm_552057" target="_blank">Comprar</a></div>
-      </div>
-      <div class="plan">
-        <div class="name">Premium</div>
-        <div class="price">R$37,90</div>
-        <small>10k seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/ftweqmm_552062" target="_blank">Comprar</a></div>
-      </div>
-      <div class="plan">
-        <div class="name">Influencer</div>
-        <div class="price">R$46,90</div>
-        <small>20k seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/3aymqq9_552065" target="_blank">Comprar</a></div>
-      </div>
-      <div class="plan">
-        <div class="name">Empresarial</div>
-        <div class="price">R$55,90</div>
-        <small>50k seguidores</small>
-        <div class="buy-row"><a class="btn btn-primary" href="https://pay.cakto.com.br/niyto2f_552068" target="_blank">Comprar</a></div>
-      </div>
-    </div>
+    <div class="plan-grid" id="plan-container"></div>
   </section>
 
 </div>
 
 <script>
+// Dados dos planos
+const plans = {
+  instagram: [
+    {name:"Inicial", price:"R$12,90", desc:"1500 seguidores", url:"https://pay.cakto.com.br/35t4u6p_551959"},
+    {name:"Popular", price:"R$19,90", desc:"3000 seguidores", url:"https://pay.cakto.com.br/39uhgwb_552026"},
+    {name:"Turbo", price:"R$27,90", desc:"5000 seguidores", url:"https://pay.cakto.com.br/3a7xmuh_552031"},
+    {name:"Premium", price:"R$34,90", desc:"10k seguidores", url:"https://pay.cakto.com.br/3c96b6k_552039"},
+    {name:"Influencer", price:"R$42,90", desc:"20k seguidores", url:"https://pay.cakto.com.br/3fj2myn_552043"},
+    {name:"Empresarial", price:"R$49,90", desc:"50k seguidores", url:"https://pay.cakto.com.br/3bat597_552044"}
+  ],
+  tiktok: [
+    {name:"Inicial", price:"R$14,90", desc:"1500 seguidores", url:"https://pay.cakto.com.br/32fasna_552053"},
+    {name:"Popular", price:"R$22,90", desc:"3000 seguidores", url:"https://pay.cakto.com.br/3cz26un_552055"},
+    {name:"Turbo", price:"R$30,90", desc:"5000 seguidores", url:"https://pay.cakto.com.br/fk4awrm_552057"},
+    {name:"Premium", price:"R$37,90", desc:"10k seguidores", url:"https://pay.cakto.com.br/ftweqmm_552062"},
+    {name:"Influencer", price:"R$46,90", desc:"20k seguidores", url:"https://pay.cakto.com.br/3aymqq9_552065"},
+    {name:"Empresarial", price:"R$55,90", desc:"50k seguidores", url:"https://pay.cakto.com.br/niyto2f_552068"}
+  ]
+};
+
+// Funções
+function renderPlans(type){
+  const container = document.getElementById("plan-container");
+  container.innerHTML = "";
+  const username = document.getElementById("username").value || "@SeuUsuario";
+  plans[type].forEach(p=>{
+    const plan = document.createElement("div");
+    plan.className = "plan";
+    plan.innerHTML = `<div class="name">${p.name}</div>
+                      <div class="price">${p.price}</div>
+                      <small>${p.desc}</small>
+                      <div class="buy-row">
+                        <a class="btn btn-primary" href="${p.url}?username=${encodeURIComponent(username)}" target="_blank">Comprar</a>
+                      </div>`;
+    container.appendChild(plan);
+  });
+}
+
+// Tabs
 const tabs = document.querySelectorAll('.tab');
 tabs.forEach(tab=>{
   tab.addEventListener('click',()=>{
@@ -236,20 +173,21 @@ tabs.forEach(tab=>{
     tabs.forEach(t=>t.classList.remove('active'));
     tab.classList.remove('inactive');
     tab.classList.add('active');
-    document.getElementById('instagram-plans').style.display = tab.dataset.tab==='instagram'?'grid':'none';
-    document.getElementById('tiktok-plans').style.display = tab.dataset.tab==='tiktok'?'grid':'none';
+    renderPlans(tab.dataset.tab);
   });
 });
+
+// Scroll botão
 document.getElementById('scroll-plans').addEventListener('click',()=>{
   document.getElementById('plans').scrollIntoView({behavior:'smooth'});
 });
 document.getElementById('goto-plans').addEventListener('click',()=>{
   document.getElementById('plans').scrollIntoView({behavior:'smooth'});
 });
+
+// Inicial
+renderPlans("instagram");
 </script>
 
 </body>
 </html>
-
-
-
