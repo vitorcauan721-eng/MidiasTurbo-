@@ -6,153 +6,86 @@
 <title>MidiasTurbo — Seguidores Reais Instagram & TikTok</title>
 <meta name="description" content="MidiasTurbo — Seguidores reais brasileiros para Instagram e TikTok. Entrega rápida, segura e alta conversão." />
 <style>
-  :root{
-    --bg:#070707;
-    --card:#111215;
-    --muted:#9aa0a6;
-    --accent1:#0066ff; /* azul */
-    --accent2:#8a00ff; /* roxo/rosa */
-    --cta:#ff2d9c;    /* rosa chamativo */
-    --white:#ffffff;
-    --glass: rgba(255,255,255,0.03);
-    --success:#00d48f;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
-    background:linear-gradient(180deg,#050508 0%, #0a0a0d 60%);
-    color:var(--white);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height:1.35;
-  }
-
-  /* Container */
-  .wrap{max-width:980px;margin:0 auto;padding:88px 18px 60px;}
-
-  /* Header */
-  header{
-    position:fixed;top:0;left:0;right:0;height:72px;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:12px 18px;background:linear-gradient(90deg,rgba(0,0,0,0.6),rgba(0,0,0,0.2));
-    backdrop-filter: blur(6px);z-index:999;
-    border-bottom:1px solid rgba(255,255,255,0.03);
-  }
-  .logo {display:flex;align-items:center;gap:10px}
-  .logo svg{height:36px}
-  .brand {
-    display:flex;flex-direction:column;line-height:1;
-  }
-  .brand .title{font-weight:700;font-size:16px;color:var(--accent2)}
-  .brand .tag{font-size:11px;color:var(--muted);margin-top:1px}
-
-  .nav-actions{display:flex;align-items:center;gap:10px}
-  .tabs{display:flex;gap:8px;background:transparent;padding:6px;border-radius:999px}
-  .tab{padding:8px 12px;border-radius:999px;font-weight:600;font-size:14px;color:var(--white);opacity:.9;cursor:pointer}
-  .tab.inactive{background:transparent;opacity:.6}
-  .cta-header{background:linear-gradient(90deg,var(--cta),var(--accent2));color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;border:none;cursor:pointer;box-shadow:0 6px 18px rgba(138,0,255,0.12)}
-
-  /* Hero */
-  .hero{display:flex;gap:18px;align-items:center;justify-content:space-between;margin-top:6px}
-  .hero-left{flex:1;min-width:0}
-  .kicker{display:inline-block;padding:6px 10px;background:linear-gradient(90deg,var(--accent2),var(--accent1));border-radius:999px;font-weight:700;font-size:12px;color:white;margin-bottom:12px}
-  h1{font-size:1.7rem;margin:0 0 10px;color:linear-gradient(90deg,var(--accent1),var(--accent2));}
-  h1 b{display:block;font-size:1.9rem}
-  p.lead{color:var(--muted);margin:0 0 18px;font-size:15px}
-  .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:12px;font-weight:700;border:none;cursor:pointer}
-  .btn-primary{background:linear-gradient(90deg,var(--cta),var(--accent2));color:#fff;box-shadow:0 10px 30px rgba(255,45,156,0.12)}
-  .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
-
-  /* Hero visual */
-  .hero-right{width:220px;display:flex;justify-content:center;align-items:center}
-  .phone{
-    width:200px;height:380px;border-radius:28px;padding:16px;background:linear-gradient(180deg,#0b0b0f,#0f0f16);border:3px solid rgba(255,255,255,0.03);position:relative;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-  }
-  .bar{height:12px;border-radius:999px;margin:10px 0;background:linear-gradient(90deg,#222,#333)}
-  .bar .fill{height:100%;border-radius:999px;width:10%;background:linear-gradient(90deg,var(--accent1),var(--accent2));transition:width 1.2s ease}
-
-  /* Benefits */
-  .benefits{display:flex;gap:12px;margin:22px 0;flex-wrap:wrap}
-  .benefit{flex:1;min-width:160px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:center}
-  .icon-wrap{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--accent1),var(--accent2));font-weight:800}
-  .benefit h4{margin:0;font-size:15px}
-  .benefit p{margin:0;color:var(--muted);font-size:13px}
-
-  /* Rules Box */
-  .rules{background:linear-gradient(180deg,#0b0b0d,#0d0d11);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);margin:16px 0}
-  .rules h3{margin:0 0 8px;color:var(--accent2)}
-  .rules ul{list-style:none;padding-left:0;margin:0;display:grid;gap:8px}
-  .rules li{display:flex;gap:10px;align-items:flex-start;color:#fff}
-  .rules li .bullet{min-width:28px}
-
-  /* Plans */
-  .plans{margin:18px 0}
-  .plans .plan-grid{display:grid;grid-template-columns:1fr;gap:12px}
-  .plan{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px}
-  .plan .price{font-weight:800;font-size:16px}
-  .plan small{color:var(--muted)}
-  .plan .buy-row{display:flex;gap:8px;align-items:center;justify-content:space-between}
-  .plan .promo{background:var(--accent1);color:#fff;padding:4px 8px;border-radius:999px;font-weight:700;font-size:12px}
-
-  .input-user{padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);width:100%;margin-bottom:10px}
-
-  /* Testimonials carousel */
-  .carousel{display:flex;gap:12px;overflow:auto;padding-bottom:6px}
-  .testimonial{min-width:220px;background:linear-gradient(180deg,#0f0f13,#121217);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-  .tp{display:flex;gap:10px;align-items:center}
-  .tp img{width:44px;height:44px;border-radius:50%}
-
-  /* FAQ */
-  .faq .acc{margin-top:8px}
-  .acc button{width:100%;text-align:left;padding:12px;border-radius:10px;background:#0f0f12;border:1px solid rgba(255,255,255,0.02);color:var(--white);font-weight:700;cursor:pointer}
-  .acc .content{max-height:0;overflow:hidden;padding:0 12px;color:var(--muted);transition:max-height .32s ease}
-
-  /* CTA big */
-  .big-cta{margin:26px 0;padding:22px;border-radius:14px;background:linear-gradient(90deg,var(--accent2),var(--accent1));text-align:center}
-  .big-cta h2{margin:0 0 8px;font-size:20px}
-  .big-cta .btn{padding:14px 22px;border-radius:12px}
-
-  /* Footer */
-  footer{margin-top:26px;padding:18px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid rgba(255,255,255,0.02)}
-
-  /* Floating badges */
-  .badge{
-    position:fixed;right:14px;bottom:90px;background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:10px;border-radius:12px;color:#fff;font-weight:800;box-shadow:0 12px 36px rgba(0,0,0,0.6);z-index:998
-  }
-
-  /* Small screens */
-  @media (max-width:720px){
-    .wrap{padding:88px 14px 40px}
-    .hero{flex-direction:column;align-items:flex-start}
-    .hero-right{width:100%;display:flex;justify-content:center}
-    .hero-left h1{font-size:1.4rem}
-    .carousel{gap:8px}
-  }
+:root{
+  --bg:#070707;
+  --card:#111215;
+  --muted:#9aa0a6;
+  --accent1:#0066ff;
+  --accent2:#8a00ff;
+  --cta:#ff2d9c;
+  --white:#ffffff;
+  --glass: rgba(255,255,255,0.03);
+  --success:#00d48f;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#050508 0%, #0a0a0d 60%);
+  color:var(--white);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.35;
+}
+.wrap{max-width:980px;margin:0 auto;padding:88px 18px 60px;}
+header{
+  position:fixed;top:0;left:0;right:0;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 18px;background:linear-gradient(90deg,rgba(0,0,0,0.6),rgba(0,0,0,0.2));
+  backdrop-filter: blur(6px);z-index:999;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.logo img{height:36px}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.tabs{display:flex;gap:8px;background:transparent;padding:6px;border-radius:999px;justify-content:center;margin-bottom:18px}
+.tab{padding:8px 12px;border-radius:999px;font-weight:600;font-size:14px;color:var(--white);opacity:.9;cursor:pointer}
+.tab.inactive{background:transparent;opacity:.6}
+.cta-header{background:linear-gradient(90deg,var(--cta),var(--accent2));color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;border:none;cursor:pointer;box-shadow:0 6px 18px rgba(138,0,255,0.12)}
+.hero{display:flex;gap:18px;align-items:center;justify-content:space-between;margin-top:6px;flex-wrap:wrap}
+.hero-left{flex:1;min-width:0}
+.kicker{display:inline-block;padding:6px 10px;background:linear-gradient(90deg,var(--accent2),var(--accent1));border-radius:999px;font-weight:700;font-size:12px;color:white;margin-bottom:12px}
+h1{font-size:1.7rem;margin:0 0 10px;color:linear-gradient(90deg,var(--accent1),var(--accent2));}
+h1 b{display:block;font-size:1.9rem}
+p.lead{color:var(--muted);margin:0 0 18px;font-size:15px}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:12px;font-weight:700;border:none;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--cta),var(--accent2));color:#fff;box-shadow:0 10px 30px rgba(255,45,156,0.12)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
+.hero-video{flex:1;display:flex;justify-content:center;align-items:center}
+.hero-video video{border-radius:18px;max-width:100%;height:auto;box-shadow:0 12px 36px rgba(0,0,0,0.6)}
+.benefits{display:flex;gap:12px;margin:22px 0;flex-wrap:wrap}
+.benefit{flex:1;min-width:160px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:center}
+.icon-wrap{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--accent1),var(--accent2));font-weight:800}
+.benefit h4{margin:0;font-size:15px}
+.benefit p{margin:0;color:var(--muted);font-size:13px}
+.rules{background:linear-gradient(180deg,#0b0b0d,#0d0d11);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);margin:16px 0}
+.rules h3{margin:0 0 8px;color:var(--accent2)}
+.rules ul{list-style:none;padding-left:0;margin:0;display:grid;gap:8px}
+.rules li{display:flex;gap:10px;align-items:flex-start;color:#fff}
+.rules li .bullet{min-width:28px}
+.plans{margin:18px 0}
+.plan-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.plan{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px}
+.plan .price{font-weight:800;font-size:16px}
+.plan small{color:var(--muted)}
+.plan .buy-row{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.plan .promo{background:var(--accent1);color:#fff;padding:4px 8px;border-radius:999px;font-weight:700;font-size:12px}
+.input-user{padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);width:100%;margin-bottom:10px}
+@media (max-width:720px){
+  .wrap{padding:88px 14px 40px}
+  .hero{flex-direction:column;align-items:flex-start}
+  .hero-video{width:100%;display:flex;justify-content:center}
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo" aria-hidden="true">
-    <!-- SVG Logo -->
-    <svg viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#0066ff"/><stop offset="1" stop-color="#8a00ff"/></linearGradient>
-      </defs>
-      <rect rx="8" width="40" height="40" fill="url(#g1)"></rect>
-      <text x="52" y="26" font-family="Inter,Arial" font-weight="800" font-size="18" fill="#fff">Midias<span style="fill:#8a00ff">Turbo</span></text>
-    </svg>
+  <div class="logo">
+    <img src="logo.png" alt="MidiasTurbo Logo">
   </div>
-
   <div class="nav-actions">
-    <div class="tabs" role="tablist" aria-label="Plataformas">
-      <div class="tab active" id="tab-insta" role="tab">Instagram</div>
-      <div class="tab inactive" id="tab-tiktok" role="tab">TikTok</div>
-    </div>
     <button class="cta-header" id="goto-plans">Comprar Agora</button>
   </div>
 </header>
@@ -165,341 +98,66 @@
       <div class="kicker">Cresça rápido • Seguidores Reais</div>
       <h1 id="hero-title"><b>Transforme seu perfil</b> com seguidores reais 🇧🇷</h1>
       <p class="lead">Aumente autoridade no Instagram e no TikTok com entregas rápidas, segura e feita para contas brasileiras — sem senha.</p>
-
       <div class="hero-cta">
         <button class="btn btn-primary" id="scroll-plans">Escolher Plano Agora 🚀</button>
         <button class="btn btn-outline" id="see-benefits">Como Funciona</button>
       </div>
 
-      <div class="benefits" style="margin-top:18px">
-        <div class="benefit">
-          <div class="icon-wrap">⚡</div>
-          <div><h4>Entrega Rápida</h4><p>Início em minutos — ramp-up suave para segurança.</p></div>
-        </div>
-        <div class="benefit">
-          <div class="icon-wrap">🇧🇷</div>
-          <div><h4>Seguidores Reais</h4><p>Contas ativas brasileiras — foco no público BR.</p></div>
-        </div>
-        <div class="benefit">
-          <div class="icon-wrap">🔒</div>
-          <div><h4>Privacidade</h4><p>Não pedimos senha — apenas @usuário público.</p></div>
-        </div>
+      <div class="benefits">
+        <div class="benefit"><div class="icon-wrap">⚡</div><div><h4>Entrega Rápida</h4><p>Início em minutos — ramp-up suave.</p></div></div>
+        <div class="benefit"><div class="icon-wrap">🇧🇷</div><div><h4>Seguidores Reais</h4><p>Contas brasileiras — público real.</p></div></div>
+        <div class="benefit"><div class="icon-wrap">🔒</div><div><h4>Privacidade</h4><p>Não pedimos senha — só @.</p></div></div>
       </div>
-
     </div>
 
-    <div class="hero-right" aria-hidden="true">
-      <div class="phone" id="phone-vis">
-        <div style="display:flex;align-items:center;justify-content:space-between">
-          <div style="width:60%;height:8px;background:rgba(255,255,255,0.03);border-radius:8px"></div>
-          <div style="width:24px;height:8px;background:rgba(255,255,255,0.03);border-radius:8px"></div>
-        </div>
-        <div style="margin-top:18px">
-          <div class="bar"><div class="fill" id="fill1" style="width:28%"></div></div>
-          <div class="bar"><div class="fill" id="fill2" style="width:44%"></div></div>
-          <div class="bar"><div class="fill" id="fill3" style="width:18%"></div></div>
-          <div class="bar"><div class="fill" id="fill4" style="width:62%"></div></div>
-        </div>
-        <div style="position:absolute;bottom:18px;left:16px;color:var(--muted);font-size:13px">Métricas reais • Crescimento</div>
-      </div>
+    <div class="hero-video">
+      <video src="video1.mp4" autoplay muted loop playsinline></video>
     </div>
   </section>
 
-  <!-- Rules / Avisos -->
-  <section class="rules" id="rules">
-    <h3>🚨 Regras & Avisos</h3>
-    <ul>
-      <li><span class="bullet">🚫</span> <div><strong>Não compre muitos seguidores em 7 dias</strong></div></li>
-      <li><span class="bullet">⏳</span> <div><strong>Seguidores podem cair em até 7 dias</strong></div></li>
-      <li><span class="bullet">📱</span> <div><strong>Só funciona em contas públicas</strong></div></li>
-      <li><span class="bullet">🔒</span> <div><strong>Não pedimos dados pessoais</strong></div></li>
-      <li><span class="bullet">⚡</span> <div><strong>Entrega rápida, mas pode variar</strong></div></li>
-      <li><span class="bullet">✅</span> <div><strong>Ao comprar você aceita as regras</strong></div></li>
-    </ul>
-    <p style="margin-top:10px;color:var(--muted)"><em>Use com responsabilidade para segurança da sua conta.</em></p>
-  </section>
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab active" data-tab="instagram">Instagram</div>
+    <div class="tab inactive" data-tab="tiktok">TikTok</div>
+  </div>
 
-  <!-- PLANS -->
+  <!-- Plans -->
   <section class="plans" id="plans">
-    <!-- Input user -->
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px">
-      <input id="user-input" class="input-user" placeholder="@usuário (ex: meuusername)" />
-      <div style="min-width:150px;display:flex;align-items:center;gap:8px">
-        <div class="promo" style="padding:8px 10px;border-radius:12px;background:linear-gradient(90deg,var(--cta),var(--accent2));font-weight:800">Oferta</div>
-      </div>
+    <div class="plan-grid" id="instagram-plans">
+      <div class="plan"><div class="price">R$12,90</div><small>1500 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
+      <div class="plan"><div class="price">R$19,90</div><small>3000 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
+      <div class="plan"><div class="price">R$27,90</div><small>5000 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
+      <div class="plan"><div class="price">R$34,90</div><small>10k seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
+      <div class="plan"><div class="price">R$42,90</div><small>20k seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
     </div>
-
-    <!-- Instagram plans -->
-    <div id="instagram-plans">
-      <h3 style="margin:8px 0 10px">📸 Planos Instagram</h3>
-      <div class="plan-grid">
-        <div class="plan">
-          <div class="price">1.500 seguidores <span style="float:right" class="promo">R$12,90</span></div>
-          <small>Entrega rápida • Seguidores BR</small>
-          <div class="buy-row">
-            <div style="color:var(--muted)">Sem senha • Apenas @</div>
-            <button class="btn btn-primary buy" data-link="https://pay.cakto.com.br/35t4u6p_551959">Comprar</button>
-          </div>
-        </div>
-
-        <div class="plan">
-          <div class="price">3.000 seguidores <span style="float:right" class="promo">R$19,90</span></div>
-          <small>Melhor custo-benefício</small>
-          <div class="buy-row">
-            <div style="color:var(--muted)"></div>
-            <button class="btn btn-primary buy" data-link="https://pay.cakto.com.br/39uhgwb_552026">Comprar</button>
-          </div>
-        </div>
-
-        <div class="plan">
-          <div class="price">5.000 seguidores <span style="float:right" class="promo">R$27,90</span></div>
-          <small>Para crescimento rápido</small>
-          <div class="buy-row">
-            <button class="btn btn-primary buy" data-link="https://pay.cakto.com.br/3a7xmuh_552031">Comprar</button>
-          </div>
-        </div>
-
-        <div class="plan">
-          <div class="price">10.000 seguidores <span style="float:right" class="promo">R$34,90</span></div>
-          <small>Alcance maior</small>
-          <div class="buy-row">
-            <button class="btn btn-primary buy" data-link="https://pay.cakto.com.br/3c96b6k_552039">Comprar</button>
-          </div>
-        </div>
-
-        <div class="plan">
-          <div class="price">20.000 seguidores <span style="float:right" class="promo">R$42,90</span></div>
-          <small>Para contas ambiciosas</small>
-          <div class="buy-row">
-            <button class="btn btn-primary buy" data-link="https://pay.cakto.com.br/3fj2myn_552043">Comprar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TikTok plans -->
-    <div id="tiktok-plans" style="margin-top:18px;display:none">
-      <h3 style="margin:8px 0 10px">🎵 Planos TikTok</h3>
-      <div class="plan-grid">
-        <div class="plan">
-          <div class="price">1.500 seguidores <span style="float:right" class="promo">R$14,90</span></div>
-          <small>Seguidores brasileiros</small>
-          <div class="buy-row">
-            <button class="btn btn-primary buy" data-link="https://pay.cakto.com.br/32fasna_552053">Comprar</button>
-          </div>
-        </div>
-
-        <div class="plan">
-          <div class="price">3.000 seguidores <span style="float:right" class="promo">R$22,90</span></div>
-          <div class="buy-row">
-            <button class="btn btn-primary buy" data-link="https://pay.cakto.com.br/3cz26un_552055">Comprar</button>
-          </div>
-        </div>
-
-        <div class="plan">
-          <div class="price">5.000 seguidores <span style="float:right" class="promo">R$30,90</span></div>
-          <div class="buy-row">
-            <button class="btn btn-primary buy" data-link="https://pay.cakto.com.br/fk4awrm_552057">Comprar</button>
-          </div>
-        </div>
-
-        <div class="plan">
-          <div class="price">10.000 seguidores <span style="float:right" class="promo">R$37,90</span></div>
-          <div class="buy-row">
-            <button class="btn btn-primary buy" data-link="https://pay.cakto.com.br/ftweqmm_552062">Comprar</button>
-          </div>
-        </div>
-
-        <div class="plan">
-          <div class="price">20.000 seguidores <span style="float:right" class="promo">R$46,90</span></div>
-          <div class="buy-row">
-            <button class="btn btn-primary buy" data-link="https://pay.cakto.com.br/3aymqq9_552065">Comprar</button>
-          </div>
-        </div>
-
-        <div class="plan">
-          <div class="price">30.000 seguidores <span style="float:right" class="promo">R$55,90</span></div>
-          <div class="buy-row">
-            <button class="btn btn-primary buy" data-link="https://pay.cakto.com.br/niyto2f_552068">Comprar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- Testimonials -->
-  <section style="margin-top:14px">
-    <h3>💬 Depoimentos</h3>
-    <div class="carousel" id="carousel">
-      <div class="testimonial">
-        <div class="tp"><img src="https://i.pravatar.cc/64?img=12" alt=""><div><strong>@luannap</strong><br><small style="color:var(--muted)">São Paulo</small></div></div>
-        <p style="margin-top:10px;color:var(--muted)">"Entregaram rápido e os seguidores realmente são ativos. Recomendo!"</p>
-      </div>
-      <div class="testimonial">
-        <div class="tp"><img src="https://i.pravatar.cc/64?img=33" alt=""><div><strong>@carlosny</strong><br><small style="color:var(--muted)">BH</small></div></div>
-        <p style="margin-top:10px;color:var(--muted)">"Minha conta ganhou mais credibilidade. Suporte profissional."</p>
-      </div>
-      <div class="testimonial">
-        <div class="tp"><img src="https://i.pravatar.cc/64?img=7" alt=""><div><strong>@leticia.ofc</strong><br><small style="color:var(--muted)">RJ</small></div></div>
-        <p style="margin-top:10px;color:var(--muted)">"Resultados visíveis. Funcionou do jeito que prometeram."</p>
-      </div>
+    <div class="plan-grid" id="tiktok-plans" style="display:none">
+      <div class="plan"><div class="price">R$14,90</div><small>1000 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
+      <div class="plan"><div class="price">R$22,90</div><small>1500 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
+      <div class="plan"><div class="price">R$30,90</div><small>3000 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
+      <div class="plan"><div class="price">R$37,90</div><small>5000 seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
+      <div class="plan"><div class="price">R$46,90</div><small>10k seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
+      <div class="plan"><div class="price">R$55,90</div><small>20k seguidores</small><div class="buy-row"><a class="btn btn-primary" href="#">Comprar</a></div></div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="faq" style="margin-top:16px">
-    <h3>❓ Perguntas Frequentes</h3>
-    <div class="acc">
-      <div class="item">
-        <button>Os seguidores são reais?</button>
-        <div class="content"><p>Sim. Trabalhamos com contas reais brasileiras. Pode haver variação natural após entrega.</p></div>
-      </div>
-      <div class="item">
-        <button>Em quanto tempo recebo?</button>
-        <div class="content"><p>Normalmente começamos o envio em poucas horas; conclusão entre 24–72 horas dependendo do plano.</p></div>
-      </div>
-      <div class="item">
-        <button>É seguro?</button>
-        <div class="content"><p>Sim. Não pedimos senha e seguimos práticas para reduzir riscos. Sempre usar com responsabilidade.</p></div>
-      </div>
-      <div class="item">
-        <button>Preciso passar senha?</button>
-        <div class="content"><p>Nunca — apenas seu @usuário público.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA final -->
-  <section class="big-cta" style="margin-top:18px">
-    <h2>Transforme seu perfil hoje mesmo 🚀</h2>
-    <button class="btn btn-primary" id="final-choose">Escolher Plano Agora</button>
-  </section>
-
-  <footer>
-    Rua da Consolação, 1500 - Centro, São Paulo/SP
-  </footer>
-
-</div>
-
-<!-- Floating promo badge -->
-<div class="badge" id="countdown">🔥 Promo: 10% off • 00:15:00</div>
-
-<!-- Social proof popup (auto) -->
-<div id="social-pop" style="position:fixed;left:14px;bottom:20px;background:linear-gradient(90deg,#fff,#fff);color:#000;padding:12px;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,0.5);display:none;z-index:999">
-  <strong>✅ Novo pedido:</strong> @mariareport acabou de comprar 3.000 seguidores
 </div>
 
 <script>
-/* Tab toggle Instagram / TikTok */
-const tabInsta = document.getElementById('tab-insta');
-const tabTiktok = document.getElementById('tab-tiktok');
-const instaPlans = document.getElementById('instagram-plans');
-const tiktokPlans = document.getElementById('tiktok-plans');
-const userInput = document.getElementById('user-input');
-
-tabInsta.addEventListener('click', ()=>{
-  tabInsta.classList.remove('inactive'); tabInsta.classList.add('active');
-  tabTiktok.classList.remove('active'); tabTiktok.classList.add('inactive');
-  instaPlans.style.display='block'; tiktokPlans.style.display='none';
-});
-tabTiktok.addEventListener('click', ()=>{
-  tabTiktok.classList.remove('inactive'); tabTiktok.classList.add('active');
-  tabInsta.classList.remove('active'); tabInsta.classList.add('inactive');
-  instaPlans.style.display='none'; tiktokPlans.style.display='block';
-});
-
-/* Scroll to plans */
-document.getElementById('scroll-plans').addEventListener('click', ()=> document.getElementById('plans').scrollIntoView({behavior:'smooth'}));
-document.getElementById('goto-plans').addEventListener('click', ()=> document.getElementById('plans').scrollIntoView({behavior:'smooth'}));
-document.getElementById('final-choose').addEventListener('click', ()=> document.getElementById('plans').scrollIntoView({behavior:'smooth'}));
-
-/* Buy button validation and open link */
-document.querySelectorAll('.buy').forEach(btn=>{
-  btn.addEventListener('click', (e)=>{
-    if(!userInput.value || userInput.value.trim().length < 2){
-      alert('Por favor preencha seu @usuário antes de comprar.');
-      userInput.focus();
-      return;
-    }
-    // sanitize handle
-    const handle = userInput.value.trim();
-    // open payment link and pass handle as a GET param if desired
-    const url = btn.dataset.link + '?user=' + encodeURIComponent(handle);
-    window.open(url, '_blank');
+const tabs = document.querySelectorAll('.tab');
+tabs.forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.add('inactive'));
+    tabs.forEach(t=>t.classList.remove('active'));
+    tab.classList.remove('inactive');
+    tab.classList.add('active');
+    document.getElementById('instagram-plans').style.display = tab.dataset.tab==='instagram'?'grid':'none';
+    document.getElementById('tiktok-plans').style.display = tab.dataset.tab==='tiktok'?'grid':'none';
   });
 });
-
-/* Accordion FAQ */
-document.querySelectorAll('.acc .item button').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const content = btn.nextElementSibling;
-    if(content.style.maxHeight && content.style.maxHeight !== '0px'){
-      content.style.maxHeight = null;
-    } else {
-      // close others
-      document.querySelectorAll('.acc .content').forEach(c=>c.style.maxHeight = null);
-      content.style.maxHeight = content.scrollHeight + 'px';
-    }
-  });
-});
-
-/* small animations for phone bars */
-const fills = [document.getElementById('fill1'),document.getElementById('fill2'),document.getElementById('fill3'),document.getElementById('fill4')];
-function animateBars(){
-  fills.forEach((f,i)=>{
-    const w = 20 + Math.floor(Math.random()*60);
-    f.style.width = w + '%';
-  });
-}
-setInterval(animateBars,2500);
-animateBars();
-
-/* Carousel auto scroll */
-const carousel = document.getElementById('carousel');
-let carPos = 0;
-setInterval(()=> {
-  if(!carousel) return;
-  carPos += 240;
-  if(carPos > carousel.scrollWidth) carPos = 0;
-  carousel.scrollTo({left:carPos,behavior:'smooth'});
-},4200);
-
-/* Floating badge countdown */
-const badge = document.getElementById('countdown');
-let total = 15*60; // 15 minutes offer
-function updBadge(){
-  const mm = String(Math.floor(total/60)).padStart(2,'0');
-  const ss = String(total%60).padStart(2,'0');
-  badge.textContent = `🔥 Promo: 10% off • ${mm}:${ss}`;
-  if(total>0) total--; else total=15*60;
-}
-setInterval(updBadge,1000);
-updBadge();
-
-/* social proof popup */
-const spop = document.getElementById('social-pop');
-function showSocial(){
-  spop.style.display='block';
-  setTimeout(()=> spop.style.display='none',6000);
-}
-setTimeout(showSocial,8000);
-
-/* Accessibility: focus on input if click "Como Funciona" */
-document.getElementById('see-benefits').addEventListener('click', ()=> {
-  document.getElementById('rules').scrollIntoView({behavior:'smooth'});
-  userInput.focus();
-});
-
-/* Prevent link openings in non-click environment gracefully */
-document.querySelectorAll('a').forEach(a=>{
-  // nothing special, links are external
-});
-
-/* small improvement: if user pastes with @ missing, add it visually */
-userInput.addEventListener('blur', ()=>{
-  if(userInput.value && !userInput.value.startsWith('@')) userInput.value = '@' + userInput.value;
+document.getElementById('scroll-plans').addEventListener('click',()=>{
+  document.getElementById('plans').scrollIntoView({behavior:'smooth'});
 });
 </script>
+
 </body>
 </html>
