@@ -6,27 +6,37 @@
 <title>MidiasTurbo — Seguidores Reais Instagram & TikTok</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  body { background: linear-gradient(to bottom right, #7e22ce, #a855f7, #ec4899); }
-  .step-card { background: rgba(255,255,255,0.1); border-left:4px solid #fff; transition: transform 0.3s; padding:1rem; border-radius:0.5rem;}
-  .step-card:hover { transform: scale(1.03); }
-  .step-number { font-size:1.5rem; font-weight:bold; color:#fff; margin-bottom:0.5rem; }
-  .plan-card { transition: transform 0.3s, box-shadow 0.3s; border:1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); border-radius:1rem; padding:1rem; text-align:center; }
-  .plan-card:hover { transform: translateY(-5px); box-shadow:0 0 15px rgba(255,255,255,0.7);}
-  .toggle-button { cursor:pointer; background: rgba(255,255,255,0.2); padding:0.5rem 1rem; border-radius:9999px; margin:0 0.25rem; font-weight:bold; }
-  .toggle-button.active { background:#fff; color:#7e22ce; }
-  .plan-card a { pointer-events:none; opacity:0.5; }
-  .plan-card input:valid + a { pointer-events:auto; opacity:1; }
+  /* Cards de passo a passo */
+  .step-card {
+    background: linear-gradient(to right, #7e22ce, #a855f7);
+    color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    flex: 1;
+  }
+  /* Layout responsivo dos planos */
+  #plan-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  /* Desabilitar botão */
+  .disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 </style>
 </head>
-<body class="text-white font-sans">
+<body class="bg-gradient-to-b from-purple-800 via-purple-600 to-purple-400 text-gray-800">
 
 <!-- Logo -->
 <header class="py-6 text-center">
-  <img src="logo.png" alt="Logo MidiasTurbo" class="mx-auto w-24 h-24 rounded-full border-2 border-white">
-  <h1 class="text-3xl font-bold mt-2">MidiasTurbo</h1>
+  <img src="logo.png" alt="Logo MidiasTurbo" class="mx-auto w-24 h-24 rounded-full">
+  <h1 class="text-3xl font-bold mt-2 text-white">MidiasTurbo</h1>
 </header>
 
-<!-- Vídeo -->
+<!-- Celular com vídeo -->
 <section class="text-center my-6">
   <div class="mx-auto w-64 h-[450px] md:h-[500px] border-4 border-white rounded-3xl overflow-hidden shadow-lg">
     <video autoplay loop muted playsinline class="w-full h-full object-cover">
@@ -36,45 +46,111 @@
   </div>
 </section>
 
-<!-- Passo a passo -->
-<section class="max-w-3xl mx-auto px-4 my-8 grid gap-4 sm:grid-cols-2">
-  <h2 class="text-2xl font-bold text-center col-span-2 mb-4">📌 Como comprar?</h2>
-  <div class="step-card"><div class="step-number">1</div>Escolha o plano ideal para você.</div>
-  <div class="step-card"><div class="step-number">2</div>Digite seu @ corretamente.</div>
-  <div class="step-card"><div class="step-number">3</div>Finalize o pagamento de forma segura.</div>
-  <div class="step-card"><div class="step-number">4</div>Receba seguidores reais e ativos automaticamente!</div>
+<!-- Passo a passo em cards -->
+<section class="max-w-4xl mx-auto px-4 my-8">
+  <h2 class="text-2xl font-bold text-center mb-6 text-white">📌 Como comprar?</h2>
+  <div class="flex flex-col md:flex-row gap-4">
+    <div class="step-card">
+      <div class="text-xl font-bold mb-2">1️⃣</div>
+      Escolha o plano ideal para você.
+    </div>
+    <div class="step-card">
+      <div class="text-xl font-bold mb-2">2️⃣</div>
+      Digite seu @ corretamente.
+    </div>
+    <div class="step-card">
+      <div class="text-xl font-bold mb-2">3️⃣</div>
+      Finalize o pagamento de forma segura.
+    </div>
+    <div class="step-card">
+      <div class="text-xl font-bold mb-2">4️⃣</div>
+      Receba seguidores reais e ativos automaticamente!
+    </div>
+  </div>
 </section>
 
 <!-- Trocar abas -->
-<section class="text-center my-6 flex justify-center gap-2">
-  <div id="instagramBtn" class="toggle-button active">Instagram</div>
-  <div id="tiktokBtn" class="toggle-button">TikTok</div>
+<section class="text-center my-4 flex justify-center gap-4 items-center">
+  <span class="text-white font-semibold" id="networkMessage">Mude para o TikTok</span>
+  <button id="toggleTab" class="px-6 py-2 rounded-full font-semibold shadow-md text-white transition bg-gradient-to-r from-pink-500 to-purple-700">
+    🔄 <span id="currentNetwork">Instagram</span>
+  </button>
 </section>
 
 <!-- Planos -->
-<section class="max-w-5xl mx-auto px-4 my-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3" id="plan-container">
+<section class="max-w-6xl mx-auto px-4 my-8" id="plan-container">
+  <!-- Planos gerados por JS -->
 </section>
 
 <!-- Benefícios -->
 <section class="bg-gradient-to-r from-purple-700 via-purple-500 to-pink-500 py-12 px-4 text-center text-white">
   <h2 class="text-2xl font-bold mb-8">✨ Benefícios da Compra</h2>
   <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-lg">
-    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center"><div class="text-4xl mb-2">🚀</div><p>Visibilidade instantânea</p></div>
-    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center"><div class="text-4xl mb-2">✅</div><p>Mais credibilidade</p></div>
-    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center"><div class="text-4xl mb-2">🔥</div><p>Maior engajamento</p></div>
-    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center"><div class="text-4xl mb-2">📈</div><p>Crescimento orgânico</p></div>
-    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center"><div class="text-4xl mb-2">🎯</div><p>Liberação da monetização (TikTok)</p></div>
-    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center"><div class="text-4xl mb-2">🇧🇷</div><p>Seguidores 100% brasileiros</p></div>
+    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+      <div class="text-4xl mb-2">🚀</div>
+      <p>Visibilidade instantânea</p>
+    </div>
+    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+      <div class="text-4xl mb-2">✅</div>
+      <p>Mais credibilidade</p>
+    </div>
+    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+      <div class="text-4xl mb-2">🔥</div>
+      <p>Maior engajamento</p>
+    </div>
+    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+      <div class="text-4xl mb-2">📈</div>
+      <p>Crescimento orgânico</p>
+    </div>
+    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+      <div class="text-4xl mb-2">🎯</div>
+      <p>Liberação da monetização (TikTok)</p>
+    </div>
+    <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+      <div class="text-4xl mb-2">🇧🇷</div>
+      <p>Seguidores 100% brasileiros</p>
+    </div>
   </div>
 </section>
 
 <!-- Depoimentos -->
 <section class="max-w-6xl mx-auto px-4 my-12">
-  <h2 class="text-2xl font-bold text-center mb-8">💬 O que nossos clientes dizem</h2>
+  <h2 class="text-2xl font-bold text-center mb-8 text-white">💬 O que nossos clientes dizem</h2>
   <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <div class="bg-white p-6 rounded-xl shadow text-center text-gray-800"><img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 1"><p class="font-semibold">@joaosilva23</p><p class="mt-2">"Comprei o plano inicial e em poucas horas já vi 1500 seguidores reais chegando. Muito top!"</p></div>
-    <div class="bg-white p-6 rounded-xl shadow text-center text-gray-800"><img src="https://randomuser.me/api/portraits/women/29.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 2"><p class="font-semibold">@larissamoura</p><p class="mt-2">"O plano turbo deu um up incrível no meu Instagram. Seguidores reais e brasileiros!"</p></div>
-    <div class="bg-white p-6 rounded-xl shadow text-center text-gray-800"><img src="https://randomuser.me/api/portraits/men/40.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 3"><p class="font-semibold">@pedrosantos</p><p class="mt-2">"Agora meu TikTok começou a monetizar rapidinho. Serviço confiável e seguro."</p></div>
+    <div class="bg-white p-6 rounded-xl shadow text-center">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 1">
+      <p class="font-semibold">@joaosilva23</p>
+      <p class="mt-2">"Comprei o plano inicial e em poucas horas já vi 1500 seguidores reais chegando. Muito top!"</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow text-center">
+      <img src="https://randomuser.me/api/portraits/women/29.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 2">
+      <p class="font-semibold">@larissamoura</p>
+      <p class="mt-2">"O plano turbo deu um up incrível no meu Instagram. Seguidores reais e brasileiros!"</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow text-center">
+      <img src="https://randomuser.me/api/portraits/men/40.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 3">
+      <p class="font-semibold">@pedrosantos</p>
+      <p class="mt-2">"Agora meu TikTok começou a monetizar rapidinho. Serviço confiável e seguro."</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-gray-100 py-12 px-4">
+  <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">❓ Perguntas Frequentes</h2>
+  <div class="max-w-3xl mx-auto space-y-4">
+    <details class="bg-white p-6 rounded-xl shadow">
+      <summary class="font-semibold cursor-pointer">Os seguidores são reais?</summary>
+      <p class="mt-2 text-gray-700">Sim! Todos os seguidores são perfis 100% reais e brasileiros, ativos na rede.</p>
+    </details>
+    <details class="bg-white p-6 rounded-xl shadow">
+      <summary class="font-semibold cursor-pointer">Em quanto tempo recebo?</summary>
+      <p class="mt-2 text-gray-700">O processo começa em até 30 minutos após a confirmação do pagamento.</p>
+    </details>
+    <details class="bg-white p-6 rounded-xl shadow">
+      <summary class="font-semibold cursor-pointer">É seguro?</summary>
+      <p class="mt-2 text-gray-700">Totalmente seguro. Não pedimos sua senha, apenas seu @.</p>
+    </details>
   </div>
 </section>
 
@@ -86,76 +162,99 @@
     <p class="text-sm mt-1">Praça 20 de Setembro, 732 - Centro, Pelotas - RS, 96050-500</p>
     <p class="text-sm mt-1">✉ suporte@midiasturbo.com</p>
     <p class="text-xs text-gray-500 mt-4">
-      Este site não é afiliado ao Facebook ou qualquer entidade do Facebook. Após deixar o Facebook, a responsabilidade não é deles e sim do nosso site.
+      Este site não é afiliado ao Facebook ou qualquer entidade do Facebook. Após deixar o Facebook,
+      a responsabilidade não é deles e sim do nosso site. Fazemos todos os esforços para indicar claramente
+      e mostrar todas as provas do produto e usamos resultados reais. Os resultados podem variar conforme
+      o perfil, nicho e tempo.
     </p>
-    <p class="text-xs text-gray-600 mt-4">Desde 2013 até 2025 - Todos os direitos reservados</p>
+    <p class="text-xs text-gray-600 mt-4">
+      Desde 2013 até 2025 - Todos os direitos reservados
+    </p>
   </div>
 </footer>
 
 <script>
 const plans = {
   instagram:[
-    {name:"Inicial", price:"R$12,90", oldPrice:"R$69,00", desc:"1500 seguidores", url:"https://pay.cakto.com.br/35t4u6p_551959"},
-    {name:"Popular", price:"R$19,90", oldPrice:"R$105,00", desc:"3000 seguidores", url:"https://pay.cakto.com.br/39uhgwb_552026"},
-    {name:"Turbo", price:"R$27,90", oldPrice:"R$146,00", desc:"5000 seguidores", url:"https://pay.cakto.com.br/3a7xmuh_552031"},
-    {name:"Premium", price:"R$34,90", oldPrice:"R$185,00", desc:"10k seguidores", url:"https://pay.cakto.com.br/3c96b6k_552039"},
-    {name:"Influencer", price:"R$42,90", oldPrice:"R$225,00", desc:"20k seguidores", url:"https://pay.cakto.com.br/3fj2myn_552043"},
-    {name:"Empresarial", price:"R$49,90", oldPrice:"R$269,00", desc:"50k seguidores", url:"https://pay.cakto.com.br/3bat597_552044"}
+    {name:"Inicial", price:"R$12,90", oldPrice:"R$69,00", desc:"1500 seguidores", url:"https://pay.cakto.com.br/35t4u6p_551959", discount:"81% OFF — Só hoje!"},
+    {name:"Popular", price:"R$19,90", oldPrice:"R$105,00", desc:"3000 seguidores", url:"https://pay.cakto.com.br/39uhgwb_552026", discount:"81% OFF — Só hoje!"},
+    {name:"Turbo", price:"R$27,90", oldPrice:"R$146,00", desc:"5000 seguidores", url:"https://pay.cakto.com.br/3a7xmuh_552031", discount:"81% OFF — Só hoje!"},
+    {name:"Premium", price:"R$34,90", oldPrice:"R$185,00", desc:"10k seguidores", url:"https://pay.cakto.com.br/3c96b6k_552039", discount:"81% OFF — Só hoje!"},
+    {name:"Influencer", price:"R$42,90", oldPrice:"R$225,00", desc:"20k seguidores", url:"https://pay.cakto.com.br/3fj2myn_552043", discount:"81% OFF — Só hoje!"},
+    {name:"Empresarial", price:"R$49,90", oldPrice:"R$269,00", desc:"50k seguidores", url:"https://pay.cakto.com.br/3bat597_552044", discount:"81% OFF — Só hoje!"}
   ],
   tiktok:[
-    {name:"Inicial", price:"R$14,90", oldPrice:"R$79,00", desc:"1500 seguidores", url:"https://pay.cakto.com.br/32fasna_552053"},
-    {name:"Popular", price:"R$22,90", oldPrice:"R$120,00", desc:"3000 seguidores", url:"https://pay.cakto.com.br/3cz26un_552055"},
-    {name:"Turbo", price:"R$30,90", oldPrice:"R$160,00", desc:"5000 seguidores", url:"https://pay.cakto.com.br/fk4awrm_552057"},
-    {name:"Premium", price:"R$37,90", oldPrice:"R$200,00", desc:"10k seguidores", url:"https://pay.cakto.com.br/ftweqmm_552062"},
-    {name:"Influencer", price:"R$46,90", oldPrice:"R$255,00", desc:"20k seguidores", url:"https://pay.cakto.com.br/3aymqq9_552065"},
-    {name:"Empresarial", price:"R$55,90", oldPrice:"R$300,00", desc:"50k seguidores", url:"https://pay.cakto.com.br/niyto2f_552068"}
+    {name:"Inicial", price:"R$14,90", oldPrice:"R$79,00", desc:"1500 seguidores", url:"https://pay.cakto.com.br/32fasna_552053", discount:"81% OFF — Só hoje!"},
+    {name:"Popular", price:"R$22,90", oldPrice:"R$120,00", desc:"3000 seguidores", url:"https://pay.cakto.com.br/3cz26un_552055", discount:"81% OFF — Só hoje!"},
+    {name:"Turbo", price:"R$30,90", oldPrice:"R$160,00", desc:"5000 seguidores", url:"https://pay.cakto.com.br/fk4awrm_552057", discount:"81% OFF — Só hoje!"},
+    {name:"Premium", price:"R$37,90", oldPrice:"R$200,00", desc:"10k seguidores", url:"https://pay.cakto.com.br/ftweqmm_552062", discount:"81% OFF — Só hoje!"},
+    {name:"Influencer", price:"R$46,90", oldPrice:"R$255,00", desc:"20k seguidores", url:"https://pay.cakto.com.br/3aymqq9_552065", discount:"81% OFF — Só hoje!"},
+    {name:"Empresarial", price:"R$55,90", oldPrice:"R$300,00", desc:"50k seguidores", url:"https://pay.cakto.com.br/niyto2f_552068", discount:"81% OFF — Só hoje!"}
   ]
 };
 
 let currentTab = "instagram";
+
 function renderPlans(type){
   const container = document.getElementById("plan-container");
   container.innerHTML = "";
+  document.getElementById("currentNetwork").innerText = type==="instagram"?"Instagram":"TikTok";
+  document.getElementById("networkMessage").innerText = type==="instagram"?"Mude para o TikTok":"Mude para o Instagram";
+
   plans[type].forEach(p=>{
-    const div = document.createElement("div");
-    div.className = "plan-card";
-    div.innerHTML = `
-      <h3 class="font-bold text-xl mb-1">${p.name}</h3>
-      <p class="text-gray-300 line-through">${p.oldPrice}</p>
-      <p class="text-2xl font-semibold text-yellow-300 mt-1">${p.price}</p>
+    const plan = document.createElement("div");
+    plan.className = "border p-6 rounded-xl shadow-lg bg-white text-center flex flex-col justify-between";
+
+    plan.innerHTML = `
+      <h3 class="font-bold text-xl mb-2">${p.name}</h3>
+      <p class="text-gray-400 line-through">${p.oldPrice}</p>
+      <p class="text-2xl font-semibold text-purple-700 mt-1">${p.price}</p>
+      <small class="text-red-600 font-semibold">${p.discount}</small>
       <p class="mt-2">${p.desc}</p>
-      <input type="text" placeholder="@seuperfil" class="border rounded w-full p-2 my-3" required>
-      <a href="${p.url}" target="_blank" class="w-full inline-block py-2 bg-purple-700 text-white rounded-lg hover:bg-purple-800 transition mt-2">Comprar</a>
+      <input type="text" placeholder="@seuperfil" class="border rounded w-full p-2 my-3" id="input-${p.name}">
+      <button class="buy-btn w-full py-2 bg-purple-700 text-white rounded-lg hover:bg-purple-800 transition mt-2 disabled" data-url="${p.url}">Comprar</button>
     `;
-    const input = div.querySelector("input");
-    const btn = div.querySelector("a");
+
+    container.appendChild(plan);
+
+    const input = plan.querySelector("input");
+    const btn = plan.querySelector(".buy-btn");
+
     input.addEventListener("input", ()=>{
-      if(input.value.trim()!==""){ btn.style.pointerEvents="auto"; btn.style.opacity="1"; } 
-      else { btn.style.pointerEvents="none"; btn.style.opacity="0.5"; }
+      if(input.value.trim() !== ""){
+        btn.classList.remove("disabled");
+      } else {
+        btn.classList.add("disabled");
+      }
     });
-    btn.addEventListener("click", e=>{
-      if(input.value.trim()===""){ e.preventDefault(); alert("Por favor, digite seu @ antes de comprar!"); }
+
+    btn.addEventListener("click", ()=>{
+      if(input.value.trim() === ""){
+        alert("❌ Digite seu @ antes de comprar!");
+      } else {
+        window.open(btn.getAttribute("data-url"), "_blank");
+      }
     });
-    container.appendChild(div);
   });
 }
 
-document.getElementById("instagramBtn").addEventListener("click", ()=>{
-  currentTab="instagram";
+document.getElementById("toggleTab").addEventListener("click", ()=>{
+  currentTab = currentTab==="instagram"?"tiktok":"instagram";
   renderPlans(currentTab);
-  document.getElementById("instagramBtn").classList.add("active");
-  document.getElementById("tiktokBtn").classList.remove("active");
-});
-
-document.getElementById("tiktokBtn").addEventListener("click", ()=>{
-  currentTab="tiktok";
-  renderPlans(currentTab);
-  document.getElementById("tiktokBtn").classList.add("active");
-  document.getElementById("instagramBtn").classList.remove("active");
 });
 
 renderPlans(currentTab);
 </script>
-
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
