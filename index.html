@@ -5,18 +5,30 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>MidiasTurbo — Seguidores Reais Instagram & TikTok</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Scroll horizontal para planos no mobile */
+  #plan-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  #plan-container > div {
+    scroll-snap-align: start;
+    min-width: 260px;
+  }
+</style>
 </head>
-<body class="bg-gradient-to-b from-purple-700 via-purple-500 to-purple-400 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
   <!-- Logo -->
-  <header class="py-6 text-center text-white">
-    <img src="logo.png" alt="Logo MidiasTurbo" class="mx-auto w-28 h-28 rounded-full border-4 border-white shadow-lg">
-    <h1 class="text-3xl font-bold mt-2">MidiasTurbo</h1>
+  <header class="py-6 text-center">
+    <img src="logo.png" alt="Logo MidiasTurbo" class="mx-auto w-24 h-24 rounded-full">
+    <h1 class="text-2xl font-bold mt-2 text-purple-800">MidiasTurbo</h1>
   </header>
 
   <!-- Celular com vídeo -->
   <section class="text-center my-6">
-    <div class="mx-auto w-64 h-[500px] border-4 border-white rounded-3xl overflow-hidden shadow-lg">
+    <div class="mx-auto w-64 h-[450px] md:h-[500px] border-4 border-gray-300 rounded-3xl overflow-hidden shadow-lg">
       <video autoplay loop muted playsinline class="w-full h-full object-cover">
         <source src="video1.mp4" type="video/mp4">
         Seu navegador não suporta vídeos.
@@ -25,113 +37,136 @@
   </section>
 
   <!-- Passo a passo -->
-  <section class="max-w-3xl mx-auto px-4 my-10 bg-white rounded-xl shadow-lg p-6">
-    <h2 class="text-xl font-bold text-center mb-4 text-purple-700">📌 Como comprar?</h2>
+  <section class="max-w-3xl mx-auto px-4 my-8">
+    <h2 class="text-xl font-bold text-center mb-4">📌 Como comprar?</h2>
     <ol class="list-decimal list-inside space-y-2 text-lg">
       <li>Escolha o plano ideal para você.</li>
       <li>Digite seu @ corretamente.</li>
       <li>Finalize o pagamento de forma segura.</li>
-      <li>Receba <strong>seguidores 100% brasileiros</strong> e ativos automaticamente!</li>
+      <li>Receba seguidores reais e ativos automaticamente!</li>
     </ol>
   </section>
 
   <!-- Trocar abas -->
-  <section class="text-center my-6">
-    <button id="toggleTab" class="px-6 py-2 bg-white text-purple-700 font-bold rounded-full shadow-md hover:bg-purple-100 transition">
-      Instagram ✅
+  <section class="text-center my-4">
+    <button id="toggleTab" class="px-6 py-2 rounded-full font-semibold shadow-md text-white transition" style="background: linear-gradient(to right, #7e22ce, #a855f7);">
+      🔄 Rede: <span id="currentNetwork">Instagram</span>
     </button>
   </section>
 
-  <!-- Planos -->
-  <section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4 my-10" id="plan-container">
+  <!-- Planos (scroll horizontal no mobile) -->
+  <section class="max-w-full mx-auto flex gap-4 px-4 my-8" id="plan-container">
     <!-- Planos serão gerados por JS -->
   </section>
 
-  <!-- Benefícios -->
-  <section class="py-10 px-4 text-center text-white bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl mx-4 md:mx-20">
-    <h2 class="text-2xl font-bold mb-6">✨ Benefícios da Compra</h2>
-    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-lg">
-      <p>🚀 Visibilidade instantânea</p>
-      <p>✅ Mais credibilidade</p>
-      <p>🔥 Maior engajamento</p>
-      <p>📈 Crescimento orgânico</p>
-      <p>🎯 Liberação da monetização (TikTok)</p>
+  <!-- Benefícios com cards -->
+  <section class="bg-gradient-to-r from-purple-700 via-purple-500 to-pink-500 py-12 px-4 text-center text-white">
+    <h2 class="text-2xl font-bold mb-8">✨ Benefícios da Compra</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-lg">
+      <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+        <div class="text-4xl mb-2">🚀</div>
+        <p>Visibilidade instantânea</p>
+      </div>
+      <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+        <div class="text-4xl mb-2">✅</div>
+        <p>Mais credibilidade</p>
+      </div>
+      <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+        <div class="text-4xl mb-2">🔥</div>
+        <p>Maior engajamento</p>
+      </div>
+      <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+        <div class="text-4xl mb-2">📈</div>
+        <p>Crescimento orgânico</p>
+      </div>
+      <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+        <div class="text-4xl mb-2">🎯</div>
+        <p>Liberação da monetização (TikTok)</p>
+      </div>
+      <div class="bg-white bg-opacity-20 p-6 rounded-xl shadow-md flex flex-col items-center">
+        <div class="text-4xl mb-2">🇧🇷</div>
+        <p>Seguidores 100% brasileiros</p>
+      </div>
     </div>
   </section>
 
   <!-- Depoimentos -->
-  <section class="max-w-5xl mx-auto px-4 my-12">
-    <h2 class="text-xl font-bold text-center mb-6 text-white">💬 O que nossos clientes dizem</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white p-4 rounded-xl shadow text-center">
-        <img src="https://randomuser.me/api/portraits/men/12.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 1">
-        <p>"Aumentei meus seguidores rapidinho, super recomendo!"</p>
-        <p class="text-sm text-gray-500">@joaopaulo123</p>
+  <section class="max-w-6xl mx-auto px-4 my-12">
+    <h2 class="text-2xl font-bold text-center mb-8">💬 O que nossos clientes dizem</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-xl shadow text-center">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 1">
+        <p class="font-semibold">@joaosilva23</p>
+        <p class="mt-2">"Comprei o plano inicial e em poucas horas já vi 1500 seguidores reais chegando. Muito top!"</p>
       </div>
-      <div class="bg-white p-4 rounded-xl shadow text-center">
-        <img src="https://randomuser.me/api/portraits/women/24.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 2">
-        <p>"Credibilidade e alcance de verdade, valeu muito."</p>
-        <p class="text-sm text-gray-500">@larissasouza</p>
+      <div class="bg-white p-6 rounded-xl shadow text-center">
+        <img src="https://randomuser.me/api/portraits/women/29.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 2">
+        <p class="font-semibold">@larissamoura</p>
+        <p class="mt-2">"O plano turbo deu um up incrível no meu Instagram. Seguidores reais e brasileiros!"</p>
       </div>
-      <div class="bg-white p-4 rounded-xl shadow text-center">
-        <img src="https://randomuser.me/api/portraits/men/35.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 3">
-        <p>"Meu TikTok está monetizando com resultados reais!"</p>
-        <p class="text-sm text-gray-500">@rafaeloliveira</p>
+      <div class="bg-white p-6 rounded-xl shadow text-center">
+        <img src="https://randomuser.me/api/portraits/men/40.jpg" class="w-16 h-16 mx-auto rounded-full mb-3" alt="Cliente 3">
+        <p class="font-semibold">@pedrosantos</p>
+        <p class="mt-2">"Agora meu TikTok começou a monetizar rapidinho. Serviço confiável e seguro."</p>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="bg-white py-10 px-4 rounded-xl shadow-lg max-w-3xl mx-auto">
-    <h2 class="text-xl font-bold text-center mb-6 text-purple-700">❓ Perguntas Frequentes</h2>
-    <div class="space-y-4">
-      <details class="p-4 rounded-lg shadow border">
-        <summary class="font-semibold">Os seguidores são reais?</summary>
-        <p class="mt-2 text-gray-600">Sim! Trabalhamos apenas com perfis reais, 100% brasileiros e ativos.</p>
+  <section class="bg-gray-100 py-12 px-4">
+    <h2 class="text-2xl font-bold text-center mb-8">❓ Perguntas Frequentes</h2>
+    <div class="max-w-3xl mx-auto space-y-4">
+      <details class="bg-white p-6 rounded-xl shadow">
+        <summary class="font-semibold cursor-pointer">Os seguidores são reais?</summary>
+        <p class="mt-2 text-gray-700">Sim! Todos os seguidores são perfis 100% reais e brasileiros, ativos na rede.</p>
       </details>
-      <details class="p-4 rounded-lg shadow border">
-        <summary class="font-semibold">Em quanto tempo recebo?</summary>
-        <p class="mt-2 text-gray-600">O processo inicia em até 30 minutos após a confirmação.</p>
+      <details class="bg-white p-6 rounded-xl shadow">
+        <summary class="font-semibold cursor-pointer">Em quanto tempo recebo?</summary>
+        <p class="mt-2 text-gray-700">O processo começa em até 30 minutos após a confirmação do pagamento.</p>
       </details>
-      <details class="p-4 rounded-lg shadow border">
-        <summary class="font-semibold">É seguro?</summary>
-        <p class="mt-2 text-gray-600">Totalmente seguro. Nunca pedimos sua senha, apenas o @.</p>
+      <details class="bg-white p-6 rounded-xl shadow">
+        <summary class="font-semibold cursor-pointer">É seguro?</summary>
+        <p class="mt-2 text-gray-700">Totalmente seguro. Não pedimos sua senha, apenas seu @.</p>
       </details>
     </div>
   </section>
 
-  <!-- Rodapé -->
-  <footer class="bg-purple-800 text-white py-8 mt-12">
+  <!-- Rodapé original -->
+  <footer class="bg-gray-900 text-gray-300 py-8 mt-12">
     <div class="max-w-6xl mx-auto px-4 text-center">
-      <h3 class="text-lg font-semibold">MidiasTurbo</h3>
+      <h3 class="text-lg font-semibold text-white">MidiasTurbo</h3>
       <p class="text-sm mt-1">Agência especializada em impulsionamento para redes sociais.</p>
       <p class="text-sm mt-1">Praça 20 de Setembro, 732 - Centro, Pelotas - RS, 96050-500</p>
       <p class="text-sm mt-1">✉ suporte@midiasturbo.com</p>
-      <p class="text-xs mt-4">
-        Este site não é afiliado ao Facebook ou qualquer entidade do Facebook. Todos os seguidores são brasileiros e resultados podem variar conforme perfil.
+      <p class="text-xs text-gray-500 mt-4">
+        Este site não é afiliado ao Facebook ou qualquer entidade do Facebook. Após deixar o Facebook,
+        a responsabilidade não é deles e sim do nosso site. Fazemos todos os esforços para indicar claramente
+        e mostrar todas as provas do produto e usamos resultados reais. Os resultados podem variar conforme
+        o perfil, nicho e tempo.
       </p>
-      <p class="text-xs mt-4">Desde 2013 até 2025 - Todos os direitos reservados</p>
+      <p class="text-xs text-gray-600 mt-4">
+        Desde 2013 até 2025 - Todos os direitos reservados
+      </p>
     </div>
   </footer>
 
 <script>
-// Dados dos planos com ícones de rede
 const plans = {
   instagram:[
-    {name:"Inicial", price:"R$12,90", oldPrice:"R$69,00", desc:"1500 seguidores 100% brasileiros", icon:"📸", url:"https://pay.cakto.com.br/35t4u6p_551959", discount:"81% OFF — Só hoje!"},
-    {name:"Popular", price:"R$19,90", oldPrice:"R$105,00", desc:"3000 seguidores 100% brasileiros", icon:"📸", url:"https://pay.cakto.com.br/39uhgwb_552026", discount:"81% OFF — Só hoje!"},
-    {name:"Turbo", price:"R$27,90", oldPrice:"R$146,00", desc:"5000 seguidores 100% brasileiros", icon:"📸", url:"https://pay.cakto.com.br/3a7xmuh_552031", discount:"81% OFF — Só hoje!"},
-    {name:"Premium", price:"R$34,90", oldPrice:"R$185,00", desc:"10k seguidores 100% brasileiros", icon:"📸", url:"https://pay.cakto.com.br/3c96b6k_552039", discount:"81% OFF — Só hoje!"},
-    {name:"Influencer", price:"R$42,90", oldPrice:"R$225,00", desc:"20k seguidores 100% brasileiros", icon:"📸", url:"https://pay.cakto.com.br/3fj2myn_552043", discount:"81% OFF — Só hoje!"},
-    {name:"Empresarial", price:"R$49,90", oldPrice:"R$269,00", desc:"50k seguidores 100% brasileiros", icon:"📸", url:"https://pay.cakto.com.br/3bat597_552044", discount:"81% OFF — Só hoje!"}
+    {name:"Inicial", price:"R$12,90", oldPrice:"R$69,00", desc:"1500 seguidores", url:"https://pay.cakto.com.br/35t4u6p_551959", discount:"81% OFF — Só hoje!"},
+    {name:"Popular", price:"R$19,90", oldPrice:"R$105,00", desc:"3000 seguidores", url:"https://pay.cakto.com.br/39uhgwb_552026", discount:"81% OFF — Só hoje!"},
+    {name:"Turbo", price:"R$27,90", oldPrice:"R$146,00", desc:"5000 seguidores", url:"https://pay.cakto.com.br/3a7xmuh_552031", discount:"81% OFF — Só hoje!"},
+    {name:"Premium", price:"R$34,90", oldPrice:"R$185,00", desc:"10k seguidores", url:"https://pay.cakto.com.br/3c96b6k_552039", discount:"81% OFF — Só hoje!"},
+    {name:"Influencer", price:"R$42,90", oldPrice:"R$225,00", desc:"20k seguidores", url:"https://pay.cakto.com.br/3fj2myn_552043", discount:"81% OFF — Só hoje!"},
+    {name:"Empresarial", price:"R$49,90", oldPrice:"R$269,00", desc:"50k seguidores", url:"https://pay.cakto.com.br/3bat597_552044", discount:"81% OFF — Só hoje!"}
   ],
   tiktok:[
-    {name:"Inicial", price:"R$14,90", oldPrice:"R$79,00", desc:"1500 seguidores 100% brasileiros", icon:"🎵", url:"https://pay.cakto.com.br/32fasna_552053", discount:"81% OFF — Só hoje!"},
-    {name:"Popular", price:"R$22,90", oldPrice:"R$120,00", desc:"3000 seguidores 100% brasileiros", icon:"🎵", url:"https://pay.cakto.com.br/3cz26un_552055", discount:"81% OFF — Só hoje!"},
-    {name:"Turbo", price:"R$30,90", oldPrice:"R$160,00", desc:"5000 seguidores 100% brasileiros", icon:"🎵", url:"https://pay.cakto.com.br/fk4awrm_552057", discount:"81% OFF — Só hoje!"},
-    {name:"Premium", price:"R$37,90", oldPrice:"R$200,00", desc:"10k seguidores 100% brasileiros", icon:"🎵", url:"https://pay.cakto.com.br/ftweqmm_552062", discount:"81% OFF — Só hoje!"},
-    {name:"Influencer", price:"R$46,90", oldPrice:"R$255,00", desc:"20k seguidores 100% brasileiros", icon:"🎵", url:"https://pay.cakto.com.br/3aymqq9_552065", discount:"81% OFF — Só hoje!"},
-    {name:"Empresarial", price:"R$55,90", oldPrice:"R$300,00", desc:"50k seguidores 100% brasileiros", icon:"🎵", url:"https://pay.cakto.com.br/niyto2f_552068", discount:"81% OFF — Só hoje!"}
+    {name:"Inicial", price:"R$14,90", oldPrice:"R$79,00", desc:"1500 seguidores", url:"https://pay.cakto.com.br/32fasna_552053", discount:"81% OFF — Só hoje!"},
+    {name:"Popular", price:"R$22,90", oldPrice:"R$120,00", desc:"3000 seguidores", url:"https://pay.cakto.com.br/3cz26un_552055", discount:"81% OFF — Só hoje!"},
+    {name:"Turbo", price:"R$30,90", oldPrice:"R$160,00", desc:"5000 seguidores", url:"https://pay.cakto.com.br/fk4awrm_552057", discount:"81% OFF — Só hoje!"},
+    {name:"Premium", price:"R$37,90", oldPrice:"R$200,00", desc:"10k seguidores", url:"https://pay.cakto.com.br/ftweqmm_552062", discount:"81% OFF — Só hoje!"},
+    {name:"Influencer", price:"R$46,90", oldPrice:"R$255,00", desc:"20k seguidores", url:"https://pay.cakto.com.br/3aymqq9_552065", discount:"81% OFF — Só hoje!"},
+    {name:"Empresarial", price:"R$55,90", oldPrice:"R$300,00", desc:"50k seguidores", url:"https://pay.cakto.com.br/niyto2f_552068", discount:"81% OFF — Só hoje!"}
   ]
 };
 
@@ -140,33 +175,29 @@ let currentTab = "instagram";
 function renderPlans(type){
   const container = document.getElementById("plan-container");
   container.innerHTML = "";
+  document.getElementById("currentNetwork").innerText = type==="instagram"?"Instagram":"TikTok";
   plans[type].forEach(p=>{
     const plan = document.createElement("div");
-    plan.className = "border p-4 rounded-xl shadow bg-white text-center hover:scale-105 transition transform";
+    plan.className = "border p-6 rounded-xl shadow-lg bg-white text-center flex-shrink-0";
     plan.innerHTML = `
-      <div class="text-3xl mb-2">${p.icon}</div>
-      <h3 class="font-bold text-lg">${p.name}</h3>
-      <p class="text-gray-400 line-through mt-2">${p.oldPrice}</p>
-      <p class="text-2xl font-semibold text-purple-600 mt-1">${p.price}</p>
+      <h3 class="font-bold text-xl mb-2">${p.name}</h3>
+      <p class="text-gray-400 line-through">${p.oldPrice}</p>
+      <p class="text-2xl font-semibold text-purple-700 mt-1">${p.price}</p>
       <small class="text-red-600 font-semibold">${p.discount}</small>
-      <p class="mt-1">${p.desc}</p>
+      <p class="mt-2">${p.desc}</p>
       <input type="text" placeholder="@seuperfil" class="border rounded w-full p-2 my-3">
-      <a href="${p.url}" target="_blank" class="w-full inline-block py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition mt-2">Comprar</a>
+      <a href="${p.url}" target="_blank" class="w-full inline-block py-2 bg-purple-700 text-white rounded-lg hover:bg-purple-800 transition mt-2">Comprar</a>
     `;
     container.appendChild(plan);
   });
 }
 
-// Alternar abas e atualizar texto do botão
-document.getElementById("toggleTab").addEventListener("click",()=>{
+document.getElementById("toggleTab").addEventListener("click", ()=>{
   currentTab = currentTab==="instagram"?"tiktok":"instagram";
   renderPlans(currentTab);
-  document.getElementById("toggleTab").textContent = currentTab==="instagram" ? "Instagram ✅" : "TikTok ✅";
 });
 
-// Inicial
 renderPlans(currentTab);
 </script>
-
 </body>
 </html>
